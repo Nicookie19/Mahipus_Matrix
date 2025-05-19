@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Stack;
 import java.util.Scanner;
 
-public class TurnBased_RPG {
+public class TurnBased_RPG { //imporved version
 
     Stack<Integer> lastPlayerHP = new Stack<>(); 
     Stack<Integer> lastEnemyHP = new Stack<>();  
