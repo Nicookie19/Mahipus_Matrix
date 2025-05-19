@@ -31,7 +31,7 @@ public class TurnBased_RPG {
         while (playerHP > 0 && botHP > 0) {
             if (isOddOrEven(gameTimer)) {
 
-                
+               
                 if (!lastPlayerHP.isEmpty() && random.nextInt(100) < 25) {
                     int restoredHP = lastPlayerHP.pop();
                     if (restoredHP > playerHP) {
@@ -73,9 +73,13 @@ public class TurnBased_RPG {
                 }
             } else {
                 
+                lastEnemyHP.push(botHP); 
+
+                
                 if (!lastEnemyHP.isEmpty() && random.nextInt(100) < 25) {
                     int restoredHP = lastEnemyHP.pop();
-                    if (restoredHP > botHP) {
+                    System.out.println("DEBUG: Enemy HP stack popped value: " + restoredHP + ", current HP: " + botHP);
+                    if (restoredHP >= botHP) { // Changed to >= for more chances
                         System.out.println("[Passive Triggered] Enemy's HP restored from " + botHP + " to " + restoredHP + "!");
                         botHP = restoredHP;
                     } else {
